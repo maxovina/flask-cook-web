@@ -1,0 +1,76 @@
+.auth {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-container {
+    border: none;
+}
+
+legend {
+    font-size: 40px;
+    text-align: left;
+    margin: 20px 0;
+}
+
+label {
+    font-size: 20px;
+}
+
+input {
+    width: 300px;
+    height: 50px;
+    border-radius: 15px;
+    border: #f36363 solid 3px;
+    font-size: 20px;
+    padding: 20px 10px;
+    margin: 10px 0;
+}
+
+
+  
+.input {
+    margin: 15px 0;
+}
+
+.form-check {
+    display: flex;
+    align-items: center;
+}
+
+.form-check-input {
+    width: 20px;
+}
+
+.form-check-input-label {
+    font-size: 100px;
+}
+
+.submit-btn {
+    padding: 0;
+    background-color: #f36363;
+    border-radius: 10px;
+    color: #beb9b8;
+    transition: all 0.3s;
+}
+
+.submit-btn:hover {
+    font-size: 21px;
+    color: #f1e8e6;
+}
+
+.text-muted {
+    color: #2f3030;
+    margin: 10vh auto;
+    font-weight: 600;
+}
+
+.text-muted a{
+    color:#f36363;
+    font-weight: 600;
+}
+
+.text-muted a:hover{
+    color:#2729b9;
+}

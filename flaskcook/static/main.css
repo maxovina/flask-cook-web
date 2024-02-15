@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    list-style: none;
+    text-decoration: none;
+
+}
+
+a {
+    color: inherit;
+}
+
+header {
+    background-color: #dad873;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000; /* Ensure the header stays on top of other elements */
+}
+
+nav {
+    display: flex;
+    padding: 15px;
+    width: 1300px;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+nav h2 {
+    font-size: 30px;
+}
+
+nav .left-nav, nav .left-nav a{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    color: #2f3030;
+    text-decoration: none;
+
+}
+
+.right-auth {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.right-auth a{
+    text-align: center;
+    color: whitesmoke;
+    background-color: #f36363;
+    width: 100px;
+    margin-left: 20px;
+    height: 2.5rem;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.right-auth span a {
+    background-color: #63f36f;
+    color: #2f3030;
+    font-weight: 600;
+}
+
+body {
+    background-color: #f1e8e6;
+}
+
+.container {
+
+    margin: 125px auto;
+    width: 1400px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 26px -11px #f36363;
+    padding: 30px;
+}

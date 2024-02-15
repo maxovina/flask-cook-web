@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='auth_forms.css') }}">
+{% endblock css %}
+
+{% block content %}
+    <div class="auth">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="input-container">
+                <legend>Log In</legend>
+                <div class="input">
+                    {{ form.username.label() }} <br>
+                    {% if form.username.errors %}
+                        {{ form.username() }}
+                        <div class="invalid-feedback">
+                            {% for error in form.username.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.username() }}
+                    {% endif %}
+                </div>
+                <div class="input">
+                    {{ form.password.label() }} <br>
+                    {% if form.password.errors %}
+                        {{ form.password() }}
+                        <div class="invalid-feedback">
+                            {% for error in form.password.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.password() }}
+                    {% endif %}
+                </div>
+                <div class="form-check">
+                    {{ form.remember(class="form-check-input") }}
+                    {{ form.remember.label(class="form-check-label") }}
+                </div>
+            </fieldset>
+            <div>
+                {{ form.submit(class="submit-btn") }}
+            </div>
+            <small class="text-muted">
+                Need An Account? <a class="ml-2" href="{{ url_for('register') }}">Register Here</a>
+            </small>
+        </form>
+    </div>
+{% endblock content %}

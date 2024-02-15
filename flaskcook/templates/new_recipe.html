@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='new_recipe.css') }}">
+{% endblock css %}
+
+{% block content %}
+    <div class="new-recipe">
+        <form method="POST" action="" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <fieldset class="input-container">
+                <legend>New Recipe</legend>
+                <div class="input">
+                    {{ form.title.label() }} <br>
+                    {% if form.title.errors %}
+                        {{ form.title() }}
+                        <div class="invalid-feedback">
+                            {% for error in form.title.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.title() }}
+                    {% endif %}
+                </div>
+                <div class="input">
+                    {{ form.description.label() }} <br>
+                    {% if form.description.errors %}
+                        {{ form.description() }}
+                        <div class="invalid-feedback">
+                            {% for error in form.description.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.description() }}
+                    {% endif %}
+                </div>
+                <div class="input">
+                    {{ form.content.label() }} <br>
+                    {% if form.content.errors %}
+                        {{ form.content() }}
+                        <div class="invalid-feedback">
+                            {% for error in form.content.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.content() }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.picture.label() }}
+                    {{ form.picture() }}
+                    {% if form.picture.errors %}
+                      {% for error in form.picture.errors %}
+                        <span class="text-danger">{{ error }}</span> <br>
+                      {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="input">
+                    {{ form.cook_time.label() }} <br>
+                    {% if form.cook_time.errors %}
+                        {{ form.cook_time() }}
+                        <div class="invalid-feedback">
+                            {% for error in form.cook_time.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.cook_time() }}
+                    {% endif %}
+                </div>
+            </fieldset>
+            <div>
+                {{ form.submit(class="submit-btn") }}
+            </div>
+        </form>
+    </div>
+{% endblock content %}

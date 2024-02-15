@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<a href="{{url_for('home')}}"><h2><- Return</h2></a>
+{% if recipe.author == current_user %}
+<a href="{{url_for('update_recipe', recipe_id=recipe.id)}}">Update</a>
+<form action="{{ url_for('delete_recipe', recipe_id=recipe.id) }}" method="POST">
+    <input class="btn btn-danger" type="submit" value="Delete">
+</form>
+{% endif %}
+<div class="recipe">
+    <small>{{recipe.date_posted}}</small>
+    <small>{{recipe.cook_time}}</small>
+    <small>{{recipe.author.username}}</small>
+    <a href=""><h1>{{recipe.title}}</h1></a>
+    <img src="{{url_for("static", filename="pics/" + recipe.image_file)}}" alt="">
+    <p>{{recipe.description}}</p>
+    <p>{{recipe.content}}</p> <br> <br>
+
+</div>
+{% endblock content %}

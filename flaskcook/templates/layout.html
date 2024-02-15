@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='cards.css') }}">
+    {% block css %}{% endblock css %}
+    <title>Recepty</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="left-nav">
+                <h2><a href="{{ url_for('home')}}">Cookbook</a></h2>
+                <a class="" href="{{ url_for('home')}}">Home</a>
+                <a class="" href="#">Categories</a>
+            </div>
+
+            {% if current_user.is_authenticated %}
+            <div class="right-auth">
+                <a href="{{ url_for('logout') }}">Logout</a>
+                <a href="{{ url_for('profile') }}">Profile</a>
+                <span><a href="{{ url_for('new_recipe') }}">New Recipe</a></span>
+                
+            </div>
+            {% else %}
+            <div class="right-auth">
+                <a href="{{ url_for('login') }}">Login</a>
+                <a href="{{ url_for('register') }}">Register</a>
+                <a href="{{ url_for('new_recipe') }}">New Recipe</a>
+            </div>
+            {% endif %}
+
+
+        </nav>
+    </header>
+    
+    <div class="container {{shadow}}">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock content %}
+    </div>
+    
+
+
+</body>
+</html>
